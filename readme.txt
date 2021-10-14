@@ -1,8 +1,8 @@
 === astromag ===
 Contributors: drkoder
-Tags: custom-menu,theme-options,threaded-comments,translation-ready,custom-background,custom-colors,magazine,editor-style,featured-images,two-columns,blog
+Tags: custom-menu,theme-options,threaded-comments,translation-ready,custom-background,custom-colors,editor-style,featured-images,two-columns,blog
 Requires at least: 5.0
-Tested up to: 5.8.1
+Tested up to: 5.8
 Requires PHP: 5.6
 Stable tag: 1.0.0
 Donate link: https://paypal.me/drkoder
@@ -13,7 +13,7 @@ astromag WordPress Theme, Copyright 2021 webocta group.
 astromag is distributed under the terms of the GNU GPL.
 
 == Description ==
-AstroMag is a uniquely designed Bolg, Magazine theme powered by kirki customizer framework.  Page templates includes Astromag Home, Right-sidebar (default page template), Full-Width, Blank with container, Blank without container Page. Other features - FlexBox, Widgetized footer area, WooCommerce ready, Compatible with Contact Form 7, Compatible with Visual Composer, Compatible with Elementor Page Builder. This theme will be an active project which we will update from time to time. Check this page regularly for the updates.
+AstroMag is a uniquely designed Bolg, Magazine theme powered by kirki customizer framework.  Page templates includes Astromag Home, Right-sidebar (default page template), Full-Width, Blank with container, Blank without container Page. Other features - FlexBox, Widgetized footer area, WooCommerce ready, Compatible with Contact Form 7, Compatible with Visual Composer, Compatible with Elementor Page Builder. This theme will be an active project which we will update from time to time. Check this page regularly for the updates. Documentation- https://docs.devglitch.com/category/astromag/
 
 == Frequently Asked Questions ==
 
