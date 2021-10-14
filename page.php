@@ -32,13 +32,13 @@ get_header();
 
 					<div class="frow-container">
 						<div class="frow">
-							<div class="col-md-1-1">				
+							<div class="col-md-1-1 text-right">				
 								<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-								<?php
-									if(function_exists('bcn_display')){
-										bcn_display();
-									}
-								?>
+								<?php if(function_exists('bcn_display')) : ?>
+									<div class="astromag-breadcrumb">
+										<?php	bcn_display();	?>
+									</div>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>

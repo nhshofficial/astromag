@@ -5,13 +5,13 @@ if ( is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_ac
             <div class="frow-container">
                 <div class="frow gutters">
                     <?php if ( is_active_sidebar( 'footer-1' )) : ?>
-                        <div class="col-md-1-3"><?php dynamic_sidebar( 'footer-1' ); ?></div>
+                        <div class="col-md-1-3 pt-25"><?php dynamic_sidebar( 'footer-1' ); ?></div>
                     <?php endif; ?>
                     <?php if ( is_active_sidebar( 'footer-2' )) : ?>
-                        <div class="col-md-1-3"><?php dynamic_sidebar( 'footer-2' ); ?></div>
+                        <div class="col-md-1-3 pt-25"><?php dynamic_sidebar( 'footer-2' ); ?></div>
                     <?php endif; ?>
                     <?php if ( is_active_sidebar( 'footer-3' )) : ?>
-                        <div class="col-md-1-3"><?php dynamic_sidebar( 'footer-3' ); ?></div>
+                        <div class="col-md-1-3 pt-25"><?php dynamic_sidebar( 'footer-3' ); ?></div>
                     <?php endif; ?>
                 </div>
             </div>

@@ -13,7 +13,6 @@
 
 	<div class="entry-content astromag-single-post p-20">
 		<?php
-		astromag_post_thumbnail();
 		
 		the_content();
 
@@ -46,4 +45,4 @@
 			?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
+</article><!-- article ends -->

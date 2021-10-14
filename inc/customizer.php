@@ -690,7 +690,7 @@ Kirki::add_field( 'astromag_theme_config', [
 	'label'       => esc_html__( 'Post Type', 'astromag' ),
 	'section'     => 'astromag_home_setup',
 	'default'     => '',
-	'placeholder' => esc_html__( 'Select an option...', 'astromag' ),
+	'placeholder' => esc_html__( 'Select a Category...', 'astromag' ),
 	'multiple'    => 100,
 	'choices'     => Kirki_Helper::get_terms( array('taxonomy' => 'category') ),
     'active_callback'   =>  [
@@ -1719,3 +1719,69 @@ Kirki::add_field( 'astromag_theme_config', [
     ],
 ] );
 
+
+/*----------------------------
+Footer section
+----------------------------*/
+
+ // section for Astromag home template
+ Kirki::add_section( 'astromag_footer_setup', array(
+    'title'    =>  esc_html__( 'Footer Section', 'astromag' ),
+    'description'    =>  esc_html__( 'Customize footer copyright texts', 'astromag' ),
+    'panel' =>  'astromag_panel'
+) );
+
+// edit footer copyright?
+Kirki::add_field( 'astromag_theme_config', [
+	'type'        => 'toggle',
+	'settings'    => 'change_footer_copyright_text',
+	'label'       => esc_html__( 'Change Copyright Text?', 'astromag' ),
+	'section'     => 'astromag_footer_setup',
+	'default'     => '0',
+] );
+
+// copyright text
+Kirki::add_field( 'astromag_theme_config', [
+	'type'        => 'text',
+	'settings'    => 'footer_copyright_text',
+	'label'       => esc_html__( 'Copyright Text', 'astromag' ),
+	'section'     => 'astromag_footer_setup',
+	'default'     => esc_html__('&copy; Your Website', 'astromag'),
+    'transport'   => 'postMessage',
+    'js_vars'     => [
+        [
+            'element'   =>  '.site-info p',
+            'function'  =>  'html',
+        ],
+    ],
+    'active_callback'   =>  [
+        [
+            'setting'   =>  'change_footer_copyright_text',
+            'operator'  =>  '===',
+            'value'     =>  true,
+        ],
+    ],
+] );
+
+// Copyright alignment
+Kirki::add_field( 'astromag_theme_config', [
+	'type'        => 'select',
+	'settings'    => 'copyright_alignment',
+	'label'       => esc_html__( 'Copyright Text Alignment', 'astromag' ),
+	'section'     => 'astromag_footer_setup',
+	'default'     => 'text-center',
+	'placeholder' => esc_html__( 'Select an option...', 'astromag' ),
+	'multiple'    => 0,
+	'choices'     => [
+		'text-left' => esc_html__( 'Left', 'astromag' ),
+		'text-center' => esc_html__( 'Center', 'astromag' ),
+		'text-right' => esc_html__( 'Right', 'astromag' ),
+	],
+    'active_callback'   =>  [
+        [
+            'setting'   =>  'change_footer_copyright_text',
+            'operator'  =>  '===',
+            'value'     =>  true,
+        ],
+    ],
+] );
