@@ -55,7 +55,7 @@
 							</div>
 					<?php else: ?>
 						<div class="astromag-featured-content text-center p-15">
-							<img src="<?php echo esc_url( get_template_directory_uri().'/assets/images/no-thumbnail.jpg' ); ?>" alt="<?php the_title(); ?>" width="400" height="400">
+							<img src="<?php echo esc_url( get_template_directory_uri().'/assets/images/no-thumbnail.jpg' ); ?>" alt="<?php echo esc_attr(the_title()); ?>" width="400" height="400">
 						</div>
 					<?php endif; /*----- thumb for blog page -----*/ ?>
 				</div>
