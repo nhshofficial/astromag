@@ -11,8 +11,8 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="frow-container-fluid">
-		<div class="frow centered gutters">
-			<div class="col-md-2-7">
+		<div class="frow centered">
+			<div class="col-md-2-7 col-sm-1-3">
 				<?php
 					// thumbnail for blog page
 					if(has_post_thumbnail() ) : ?>
@@ -25,13 +25,13 @@
 					</div>
 				<?php endif; /*----- thumb for blog page -----*/ ?>
 			</div>
-			<div class="col-md-5-7">
+			<div class="col-md-5-7 col-sm-2-3">
 				<div class="entry-content ulol p-15">
 					<?php if ( 'post' === get_post_type() ) : ?>
 						<div class="entry-meta text-right">
-						<?php astromag_posted_comment_new(); ?>
-						<?php astromag_posted_on(); ?>
-				</div><!-- .entry-meta -->
+							<?php astromag_posted_comment_new(); ?>
+							<?php astromag_posted_on(); ?>
+						</div><!-- .entry-meta -->
 					<?php endif; ?>
 					<?php 
 						if ( is_singular() ) :
@@ -40,6 +40,24 @@
 							the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); // title
 						endif;
 					?>
+
+
+					<?php 
+						/*----- content for blog page -----*/
+						the_excerpt( sprintf(
+							wp_kses(
+								/* translators: %s: Name of current post. Only visible to screen readers */
+								__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'astromag' ),
+								array(
+									'span' => array(
+										'class' => array(),
+									),
+								)
+							),
+							get_the_title()
+						) ); 
+					?>
+
 				</div> <!-- entry content -->
 			</div> <!-- col 5-7 -->
 		</div> <!-- frow -->
