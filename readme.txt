@@ -92,6 +92,3 @@ Just click on Appearance -> Customize -> Widget
 
 *   Kirki Customizer Framework https://github.com/kirki-framework/kirki
 	License https://github.com/kirki-framework/kirki/blob/develop/LICENSE
-
-*   Promo section image - Undraw.co
-	License https://undraw.co/license

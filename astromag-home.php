@@ -212,7 +212,7 @@ get_header();
 										<p><?php echo esc_textarea( get_theme_mod( 'section_two_promotion_desc', 'You can add sponsored promotions directly form this special promotion section easily. Hope it helps you a lot to grow.') ) ?></p>
 									</div>
 									<div class="col-md-2-5 pb-25">
-										<img src="<?php echo esc_url( get_theme_mod( 'section_two_promotion_img', get_template_directory_uri().'/assets/images/prom_img.png' )); ?>" alt="<?php echo esc_html( get_theme_mod( 'section_two_promotion_title', 'Develop a complete blog website yourself easily' ) ) ?>">
+										<img src="<?php echo esc_url( get_theme_mod( 'section_two_promotion_img', get_template_directory_uri().'/assets/images/no-thumbnail.jpg' )); ?>" alt="<?php echo esc_html( get_theme_mod( 'section_two_promotion_title', 'Develop a complete blog website yourself easily' ) ) ?>">
 									</div>
 									<div class="col-md-1-1">
 										<div class="post-meta-tutorial py-25">

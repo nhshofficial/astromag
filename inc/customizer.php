@@ -923,7 +923,7 @@ Kirki::add_field( 'astromag_theme_config', [
 	'settings'    => 'section_two_promotion_img',
 	'label'       => esc_html__( 'Promotion Image', 'astromag' ),
 	'section'     => 'astromag_home_setup',
-	'default'     => get_template_directory_uri().'/assets/images/prom_img.png',
+	'default'     => get_template_directory_uri().'/assets/images/no-thumbnail.jpg',
     'active_callback'   =>  [
         [
             'setting'   =>  'show_home_promotion_section',
