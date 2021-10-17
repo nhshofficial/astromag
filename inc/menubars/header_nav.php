@@ -4,11 +4,11 @@
             <div class="col-md-1-1 pb-15 border-bottom">
                 <!-- logo -->
                     <?php if ( has_custom_logo() ): 
-                        $custom_logo_id = get_theme_mod( 'custom_logo' );
-                        $logourl = wp_get_attachment_image_src( $custom_logo_id , 'astromag-logo' ); 
+                        $astromag_custom_logo_id = get_theme_mod( 'custom_logo' );
+                        $astromag_logourl = wp_get_attachment_image_src( $astromag_custom_logo_id , 'astromag-logo' ); 
                     ?>
                     <a class="logo" href="<?php echo esc_url( home_url( '/' )); ?>" rel="home" itemprop="url">
-                        <img src="<?php echo esc_url($logourl[0]); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+                        <img src="<?php echo esc_url($astromag_logourl[0]); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
                     </a>
                     <?php else : ?>
                         <a class="logo" href="<?php echo esc_url( home_url( '/' )); ?>"><h2><?php esc_url(bloginfo('name')); ?></h2><p><?php esc_url(bloginfo('description')); ?></p></a>
@@ -32,7 +32,7 @@
             </div> <!-- column -->
 
             <?php 
-                $social_handles_default = [
+                $astromag_social_handles_default = [
                     [
                         'header_icon_icons' => 'fa-brands fa-facebook-square',
                         'header_icon_color' => '#065dbf',
@@ -59,13 +59,13 @@
                     ],
                 ];
 
-                $social_handles = get_theme_mod( 'header_social_handle', $social_handles_default );
+                $astromag_social_handles = get_theme_mod( 'header_social_handle', $astromag_social_handles_default );
             ?>
 
             <div class="col-md-1-1 py-15 border-bottom">
                 <ul class="header-social">
-                    <?php foreach($social_handles as $social_handle) : ?>
-                    <li><i class="<?php echo esc_attr( $social_handle['header_icon_icons'] ); ?>"></i> <a href="<?php echo esc_url( $social_handle['header_icon_link'] ); ?>"><?php echo esc_html( $social_handle['header_icon_title'] ); ?></a></li>
+                    <?php foreach($astromag_social_handles as $astromag_social_handle) : ?>
+                    <li><i class="<?php echo esc_attr( $astromag_social_handle['header_icon_icons'] ); ?>"></i> <a href="<?php echo esc_url( $astromag_social_handle['header_icon_link'] ); ?>"><?php echo esc_html( $astromag_social_handle['header_icon_title'] ); ?></a></li>
                     <?php endforeach; ?>
                 </ul>
             </div> <!-- column social -->

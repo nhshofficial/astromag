@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: AstroMag Home
+ * Template Name: astromag Home
  */
 
 get_header();
@@ -23,7 +23,7 @@ get_header();
 					<div class="frow gutters">
 						<?php 
 							// WP Query for widget (1st post only)
-							$postArgsFirstPost = array(
+							$astromag_postArgsFirstPost = array(
 								'post__not_in' => get_option( 'sticky_posts' ),
 								'post_status' => 'publish',
 								'post_type' => 'post',
@@ -39,18 +39,18 @@ get_header();
 							);
 
 							// query var
-							$get_posts_first = new WP_Query($postArgsFirstPost); 
+							$astromag_get_posts_first = new WP_Query($astromag_postArgsFirstPost); 
 							
 							// Loop
-							while($get_posts_first->have_posts()) : $get_posts_first->the_post();
+							while($astromag_get_posts_first->have_posts()) : $astromag_get_posts_first->the_post();
 							//Post ID
-							$postIdFirst  = get_the_ID();
+							$astromag_postIdFirst  = get_the_ID();
 						?>
 						<div class="col-md-6-9 col-sm-1-2 col-xs-1-1">
 							<div class="single-post-home">
-								<?php if(has_post_thumbnail( $postIdFirst )) : ?>
+								<?php if(has_post_thumbnail( $astromag_postIdFirst )) : ?>
 								
-									<div class="post-image" style="background-image: url(<?php echo esc_url( get_the_post_thumbnail_url($postIdFirst,'astromag-blog') );  ?>);">
+									<div class="post-image" style="background-image: url(<?php echo esc_url( get_the_post_thumbnail_url($astromag_postIdFirst,'astromag-blog') );  ?>);">
 									
 								<?php else: ?>
 
@@ -58,7 +58,7 @@ get_header();
 
 								<?php endif; ?>
 								<?php if(get_theme_mod( 'section_one_show_post_category', true ) == true): ?>
-									<span><?php echo esc_html( get_the_category($postIdFirst)[0]->name ); ?></span>
+									<span><?php echo esc_html( get_the_category($astromag_postIdFirst)[0]->name ); ?></span>
 								<?php endif; ?>
 									</div>
 								<div class="post-meta">
@@ -68,24 +68,14 @@ get_header();
 									<?php endif; ?>
 									</p>
 									<p class="post-comment post-views">
-										<?php if(get_theme_mod( 'section_one_show_post_view', true ) == true): ?>
-											<span><i class="fa-regular fa-eye"></i> 
-											<?php                             
-												if ( get_post_meta( get_the_ID() , 'astromag_post_views_count', true) == '') { 
-													echo esc_html( '0' ) ;                            
-												} else { 
-													echo esc_html(get_post_meta( get_the_ID() , 'astromag_post_views_count', true)); }
-											?> 
-											</span>
-										<?php endif; ?>
 										<?php if(get_theme_mod( 'section_one_show_post_comments', true ) == true): ?>
-											<span><i class="fa-regular fa-comment-dots"></i> <?php echo esc_html( wp_count_comments($postIdFirst)->total_comments ); ?></span>
+											<?php astromag_posted_comment_new(); ?>
 										<?php endif; ?>
 									</p>
 								</div>
-								<h2 class="post-title"><?php echo esc_html( get_the_title( $postIdFirst ) ); ?></h2>
+								<h2 class="post-title"><?php echo esc_html( get_the_title( $astromag_postIdFirst ) ); ?></h2>
 								<div class="read-more-home">
-									<a href="<?php echo esc_url( get_the_permalink( $postIdFirst ) ); ?>">
+									<a href="<?php echo esc_url( get_the_permalink( $astromag_postIdFirst ) ); ?>">
 										<span><?php echo esc_html( get_theme_mod( 'section_one_read_more_text', 'Read full article' ) ); ?></span>
 										<span><i class="fa-solid fa-right-long"></i></span>
 									</a>
@@ -101,14 +91,14 @@ get_header();
 							/*------------ ends 1st post query ------------*/
 
 							// WP Query for widget
-							$postsToShow = esc_html( get_theme_mod( 'section_one_post_count', 5 ) );
-							$postArgs = array(
+							$astromag_postsToShow = esc_html( get_theme_mod( 'section_one_post_count', 5 ) );
+							$astromag_postArgs = array(
 								'post__not_in' => get_option( 'sticky_posts' ),
 								'post_status' => 'publish',
 								'post_type' => 'post',
 								'orderby' => esc_html( get_theme_mod('section_one_post_type') ), // rand, DESC
 								'offset' => 1, // offset
-								'posts_per_page' =>  $postsToShow - 1, // post count - 1
+								'posts_per_page' =>  $astromag_postsToShow - 1, // post count - 1
 								'tax_query' => array (
 									array(
 										'taxonomy' => 'category',
@@ -118,17 +108,17 @@ get_header();
 								)
 							);
 
-							$get_posts = new WP_Query($postArgs);
-							while($get_posts->have_posts()) : $get_posts->the_post();
-							$postId  = get_the_ID();
+							$astromag_get_posts = new WP_Query($astromag_postArgs);
+							while($astromag_get_posts->have_posts()) : $astromag_get_posts->the_post();
+							$astromag_postId  = get_the_ID();
 
 						?>
 
 						<div class="col-md-3-9 col-sm-1-2 col-xs-1-1">
 							<div class="single-post-home">
-								<?php if(has_post_thumbnail( $postId )) : ?>
+								<?php if(has_post_thumbnail( $astromag_postId )) : ?>
 								
-									<div class="post-image" style="background-image: url(<?php echo esc_html( get_the_post_thumbnail_url($postId,'astromag-blog') );  ?>);">
+									<div class="post-image" style="background-image: url(<?php echo esc_html( get_the_post_thumbnail_url($astromag_postId,'astromag-blog') );  ?>);">
 								
 								<?php else: ?>
 
@@ -137,7 +127,7 @@ get_header();
 								<?php endif; ?>
 									
 								<?php if(get_theme_mod( 'section_one_show_post_category', true ) == true): ?>
-									<span><?php echo esc_html( get_the_category($postId)[0]->name ); ?></span>
+									<span><?php echo esc_html( get_the_category($astromag_postId)[0]->name ); ?></span>
 								<?php endif; ?>
 
 								</div>
@@ -150,24 +140,14 @@ get_header();
 									</p>
 
 									<p class="post-comment post-views">
-									<?php if(get_theme_mod( 'section_one_show_post_view', true ) == true): ?>
-										<span><i class="fa-regular fa-eye"></i> 
-										<?php                             
-											if ( get_post_meta( get_the_ID() , 'astromag_post_views_count', true) == '') { 
-												echo esc_html( '0' ) ;                            
-											} else { 
-												echo esc_html(get_post_meta( get_the_ID() , 'astromag_post_views_count', true)); }
-										?> 
-										</span>
-									<?php endif; ?>
 									<?php if(get_theme_mod( 'section_one_show_post_comments', true ) == true): ?>
-										<span><i class="fa-regular fa-comment-dots"></i> <?php echo esc_html( wp_count_comments($postId)->total_comments ); ?></span>
+										<?php astromag_posted_comment_new(); ?>
 									<?php endif; ?>
 									</p>
 								</div>
-								<h2 class="post-title"><?php echo esc_html( get_the_title( $postId ) ); ?></h2>
+								<h2 class="post-title"><?php echo esc_html( get_the_title( $astromag_postId ) ); ?></h2>
 								<div class="read-more-home">
-									<a href="<?php echo esc_url( get_the_permalink( $postId ) ); ?>">
+									<a href="<?php echo esc_url( get_the_permalink( $astromag_postId ) ); ?>">
 										<span><?php echo esc_html( get_theme_mod( 'section_one_read_more_text', 'Read full article' ) ); ?></span>
 										<span><i class="fa-solid fa-right-long"></i></span>
 									</a>
@@ -243,35 +223,36 @@ get_header();
 				<?php endif; ?>
 
 				<?php if( get_theme_mod( 'show_home_all_post_section', true ) == true ): 
-					
-					$postPerPage = esc_html(get_theme_mod('section_three_post_per_page', 6));
-					if ( get_query_var( 'paged' ) ) { $paged = get_query_var( 'paged' ); }
-					elseif ( get_query_var( 'page' ) ) { $paged = get_query_var( 'page' ); }
-					else { $paged = 1; }
-					$args = array(
+					// posts per page
+					$astromag_postPerPage = esc_html(get_theme_mod('section_three_post_per_page', 6));
+
+					if ( get_query_var( 'paged' ) ) { $astromag_paged = get_query_var( 'paged' ); }
+					elseif ( get_query_var( 'page' ) ) { $astromag_paged = get_query_var( 'page' ); }
+					else { $astromag_paged = 1; }
+					$astromag_args = array(
 						'post__not_in' => get_option( 'sticky_posts' ),
 						'post_status' => 'publish',
 						'orderby'	=>	'DESC',
 						'post_type' => 'post',
-						'posts_per_page' => $postPerPage,
-						'paged' => $paged
+						'posts_per_page' => $astromag_postPerPage,
+						'paged' => $astromag_paged
 					);
 
-					$get_all_posts = new WP_Query($args);
+					$astromag_get_all_posts = new WP_Query($astromag_args);
 					
 				?>
 				<section class="main-starts">
 					<div id="post-container" class="frow gutters">
 						<?php 
-							while($get_all_posts->have_posts()) : $get_all_posts->the_post(); 
-							$postid = get_the_ID();
+							while($astromag_get_all_posts->have_posts()) : $astromag_get_all_posts->the_post(); 
+							$astromag_postid = get_the_ID();
 
 						?>
 						<div id="single-post" class="col-md-1-<?php echo esc_attr(get_theme_mod( 'section_three_post_per_row', 3 )); ?> col-sm-1-2 col-xs-1-1">
 							<div class="single-post-home astromag-all-post-list">
-								<?php if(has_post_thumbnail( $postid )) : ?>
+								<?php if(has_post_thumbnail( $astromag_postid )) : ?>
 								
-									<div class="post-image" style="background-image: url(<?php echo esc_url( get_the_post_thumbnail_url($postid,'astromag-blog') );  ?>);">
+									<div class="post-image" style="background-image: url(<?php echo esc_url( get_the_post_thumbnail_url($astromag_postid,'astromag-blog') );  ?>);">
 									
 								<?php else: ?>
 
@@ -279,7 +260,7 @@ get_header();
 
 								<?php endif; ?>
 								<?php if(get_theme_mod( 'section_three_show_post_category', true ) == true): ?>
-									<span><?php echo esc_html( get_the_category($postid)[0]->name ); ?></span>
+									<span><?php echo esc_html( get_the_category($astromag_postid)[0]->name ); ?></span>
 								<?php endif; ?>
 									</div>
 								<div class="post-meta">
@@ -290,24 +271,14 @@ get_header();
 									</p>
 
 									<p class="post-comment post-views">
-										<?php if(get_theme_mod( 'section_three_show_post_view', true ) == true): ?>
-											<span><i class="fa-regular fa-eye"></i> 
-											<?php                             
-												if ( get_post_meta( get_the_ID() , 'astromag_post_views_count', true) == '') { 
-													echo esc_html( '0' ) ;                            
-												} else { 
-													echo esc_html(get_post_meta( get_the_ID() , 'astromag_post_views_count', true)); }
-											?> 
-											</span>
-										<?php endif; ?>
 										<?php if(get_theme_mod( 'section_three_show_post_comments', true ) == true): ?>
-											<span><i class="fa-regular fa-comment-dots"></i> <?php echo esc_html( wp_count_comments($postid)->total_comments ); ?></span>
+											<?php astromag_posted_comment_new(); ?>
 										<?php endif; ?>
 									</p>
 								</div>
-								<h2 class="post-title"><?php echo esc_html( get_the_title( $postid ) ); ?></h2>
+								<h2 class="post-title"><?php echo esc_html( get_the_title( $astromag_postid ) ); ?></h2>
 								<div class="read-more-home">
-									<a href="<?php echo esc_url( get_the_permalink( $postid ) ); ?>">
+									<a href="<?php echo esc_url( get_the_permalink( $astromag_postid ) ); ?>">
 										<span><?php echo esc_html( get_theme_mod( 'section_three_read_more_text', 'Read full article' ) ); ?></span>
 										<span><i class="fa-solid fa-right-long"></i></span>
 									</a>
@@ -323,47 +294,21 @@ get_header();
 					<div class="frow"> <!-- pagination row -->
 						<?php
 							// check if pagination enabled from theme option
-							if( get_theme_mod( 'section_three_enable_pagination', 'enable' ) == 'enable' ):
-
-							// check if infinite scroll enabled from theme option
-							if( get_theme_mod( 'section_three_enable_inf_scroll', 'enable' ) == 'enable' ): ?>
-							<script>
-								jQuery(document).ready(function($){
-
-									$("#post-container").infiniteScroll({
-										
-										path: ".astromag-page-nav .next",
-										append: "#single-post",
-										status: ".page-load-status",
-										<?php if( get_theme_mod( 'section_three_scroll_behavior', 'scroll' ) == 'scroll' ): ?>
-										scrollThreshold: 100,
-										<?php endif; ?>
-										<?php if( get_theme_mod( 'section_three_scroll_behavior', 'scroll' ) == 'button' ): ?>
-										scrollThreshold: false,
-										button: '#infinite-load-btn',
-										<?php endif; ?>
-										checkLastPage: true
-										});
-								});
-							</script>
-							<?php endif; // infinite scroll check ends ?>
+							if( get_theme_mod( 'section_three_enable_pagination', 'enable' ) == 'enable' ): ?>
 						
 						<div class="col-md-1-1 <?php echo esc_attr( get_theme_mod( 'section_three_pagination_visibility', 'visible-nav' ) ); ?>">
 							<nav class="astromag-page-nav text-center">
-							<?php if ($get_all_posts->max_num_pages > 1) : // custom pagination  
-								
-								$orig_query = $wp_query; // fix for pagination to work
-								$wp_query = $get_all_posts;
-								$big = 999999999;
+							<?php if ($astromag_get_all_posts->max_num_pages > 1) : // custom pagination
+
+								$astromag_big = 999999999;
 								echo paginate_links(array(
-									'base' => str_replace($big, '%#%', get_pagenum_link($big)),
+									'base' => str_replace($astromag_big, '%#%', get_pagenum_link($astromag_big)),
 									'format' => '?paged=%#%',
-									'current' => max(1, get_query_var('paged')),
-									'total' => $wp_query->max_num_pages,
+									'current' => max(1, $astromag_paged),
+									'total' => $astromag_get_all_posts->max_num_pages,
 									'prev_text' => 'Prev',  
 									'next_text' => 'Next' 
-								));                  
-								$wp_query = $orig_query; // fix for pagination to work
+								));           
 								
 								endif; // custom pagination end ?>
 							</nav>

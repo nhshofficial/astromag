@@ -173,24 +173,6 @@ function astromag_widgets_init() {
 add_action( 'widgets_init', 'astromag_widgets_init' );
 
 /**
- * astromag post view count.
- */
-	if ( ! function_exists( 'astromag_post_view_count' ) ) :    
-		/**     * get the value of view.     */ 
-		function astromag_post_view_count($postID) {   
-			$count_key = 'astromag_post_views_count';    
-			$count = get_post_meta($postID, $count_key, true);    
-			if($count ==''){        
-				$count = 1;        
-				delete_post_meta($postID, $count_key);        
-				add_post_meta($postID, $count_key, '1');    
-			} else {        
-				$count++;        
-				update_post_meta($postID, $count_key, $count);    
-			}
-		}
-	endif; 
-/**
  * Enqueue scripts and styles.
  */
 function astromag_scripts() {
@@ -220,11 +202,6 @@ function astromag_scripts() {
 	wp_enqueue_script( 'astromag-skip-link-focus-fix-js', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '1.0', true );
 	// responsive-nav js
 	wp_enqueue_script( 'responsive-nav', get_template_directory_uri() . '/assets/js/responsive-nav.js', array(), '1.0', true );
-	// check if infinite scroll enabled from theme option
-	if( get_theme_mod( 'section_three_enable_inf_scroll', 'enable' ) == 'enable' ) {
-		// infinite scroll
-		wp_enqueue_script( 'infinite-scroll', get_template_directory_uri() . '/assets/js/infinite-scroll.pkgd.js', array('jquery'), '4.0.1', true );
-	}
 	// main js
 	wp_enqueue_script( 'astromag-main-js', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0', true );
 	// comment reply
@@ -333,36 +310,42 @@ function astromag_customize_css() {
 }
 add_action( 'wp_head', 'astromag_customize_css');
 
+// check if infinite scroll enabled from theme option
+if( get_theme_mod( 'section_three_enable_inf_scroll', 'enable' ) == 'enable' ):
 
+	function astromag_enqueue_custom_infinite_scroll() {
+		// infinite scroll
+		wp_enqueue_script( 'infinite-scroll', get_template_directory_uri() . '/assets/js/infinite-scroll.pkgd.js', array('jquery'), '4.0.1', true );
 
+		// conditions
+		if( get_theme_mod( 'section_three_scroll_behavior', 'scroll' ) == 'button' ):
+			$infiniteButton = '
+				scrollThreshold: false,
+				button: "#infinite-load-btn"
+			';
+		else:
+			$infiniteButton = '
+				scrollThreshold: 100
+			';
+			endif;
 
-function home_pagination( $query = null ) 
-{
-    global $wp_rewrite;
+		// init infinite scroll options
+		wp_add_inline_script( 'infinite-scroll', '
+		
+		jQuery(document).ready(function($){
 
-    if ( get_query_var('paged') ) {
-        $paged = get_query_var('paged'); 
-    } elseif ( get_query_var('page') ) { 
-        $paged = get_query_var('page'); 
-    } else { 
-        $paged = 1; 
-    }
+			$("#post-container").infiniteScroll({
+				
+				path: ".astromag-page-nav .next",
+				append: "#single-post",
+				status: ".page-load-status",
+				checkLastPage: true,
+				'.$infiniteButton.'
+				});
+		});
 
-
-    $pagination = array(            
-        'base'      => @add_query_arg( 'paged', '%#%' ),
-        'format'    => '',
-        'current'   => $paged,
-        'total'     => $query->max_num_pages,
-        'prev_text' => '&laquo; Previous',
-        'next_text' => 'Next &raquo;',
-    );
-
-    if ( $wp_rewrite->using_permalinks() )
-        $pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ).'/%#%/', '' );
-
-    if ( ! empty( $wp_query->query_vars['s'] ) )
-        $pagination['add_args'] = array( 's' => get_query_var( 's' ) );
-
-    return paginate_links( $pagination );
-} 
+		' );
+	}
+	add_action( 'wp_enqueue_scripts', 'astromag_enqueue_custom_infinite_scroll' );
+ 
+endif; // infinite scroll check ends

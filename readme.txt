@@ -92,3 +92,23 @@ Just click on Appearance -> Customize -> Widget
 
 *   Kirki Customizer Framework https://github.com/kirki-framework/kirki
 	License https://github.com/kirki-framework/kirki/blob/develop/LICENSE
+
+*   Image for theme screenshot, Copyright Ylanite Koppens
+	License: CC0 1.0 Universal (CC0 1.0)
+	Source: https://stocksnap.io/photo/closeup-fresh-5OIM67EPJH
+
+*   Image for theme screenshot, Copyright Jens Mahnke
+	License: CC0 1.0 Universal (CC0 1.0)
+	Source: https://stocksnap.io/photo/robot-vacuum-VJCXHQGRVO
+
+*   Image for theme screenshot, Copyright Freestocks.org
+	License: CC0 1.0 Universal (CC0 1.0)
+	Source: https://stocksnap.io/photo/lemon-drinks-8IMC0GKEPM
+
+*   Image for theme screenshot, Copyright Top Down Tech
+	License: CC0 1.0 Universal (CC0 1.0)
+	Source: https://stocksnap.io/photo/top-workspace-95I2IUOQ8A
+
+*   Image for theme screenshot, Copyright Words as Pictures
+	License: CC0 1.0 Universal (CC0 1.0)
+	Source: https://stocksnap.io/photo/words-text-4JOXRHBMTX

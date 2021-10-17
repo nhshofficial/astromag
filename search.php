@@ -26,10 +26,11 @@ get_header();
 								?>
 								</h1>
 								<?php 
-								if(function_exists('bcn_display')){
-									bcn_display();
-								} 
-							?>
+								if(function_exists('bcn_display')): ?>
+									<div class="astromag-breadcrumb">
+										<?php	bcn_display();	?>
+									</div>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>

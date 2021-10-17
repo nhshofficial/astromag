@@ -26,7 +26,7 @@ if ( ! function_exists( 'astromag_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( '%s', 'post date', 'astromag' ),
+			esc_html( '%s', 'post date' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 

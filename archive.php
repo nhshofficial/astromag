@@ -24,10 +24,11 @@ get_header();
 								the_archive_description( '<div class="archive-description">', '</div>' );
 							?>
 							<?php 
-								if(function_exists('bcn_display')){
-									bcn_display();
-								} 
-							?>
+							if(function_exists('bcn_display')): ?>
+								<div class="astromag-breadcrumb">
+									<?php	bcn_display();	?>
+								</div>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>

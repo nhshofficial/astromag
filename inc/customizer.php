@@ -612,22 +612,6 @@ Kirki::add_field( 'astromag_theme_config', [
     ],
 ] );
 
-// show post view
-Kirki::add_field( 'astromag_theme_config', [
-	'type'        => 'toggle',
-	'settings'    => 'section_one_show_post_view',
-	'label'       => esc_html__( 'Show Post Views?', 'astromag' ),
-	'section'     => 'astromag_home_setup',
-	'default'     => '1',
-    'active_callback'   =>  [
-        [
-            'setting'   =>  'show_home_post_section_one',
-            'operator'  =>  '===',
-            'value'     =>  true,
-        ],
-    ],
-] );
-
 // show post comment
 Kirki::add_field( 'astromag_theme_config', [
 	'type'        => 'toggle',
@@ -1336,22 +1320,6 @@ Kirki::add_field( 'astromag_theme_config', [
 	'type'        => 'toggle',
 	'settings'    => 'section_three_show_published_date',
 	'label'       => esc_html__( 'Show Published Date?', 'astromag' ),
-	'section'     => 'astromag_home_setup',
-	'default'     => '1',
-    'active_callback'   =>  [
-        [
-            'setting'   =>  'show_home_all_post_section',
-            'operator'  =>  '===',
-            'value'     =>  true,
-        ],
-    ],
-] );
-
-// show all post view?
-Kirki::add_field( 'astromag_theme_config', [
-	'type'        => 'toggle',
-	'settings'    => 'section_three_show_post_view',
-	'label'       => esc_html__( 'Show Post Views?', 'astromag' ),
 	'section'     => 'astromag_home_setup',
 	'default'     => '1',
     'active_callback'   =>  [
