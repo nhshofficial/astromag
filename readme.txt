@@ -4,7 +4,7 @@ Tags: custom-menu,theme-options,threaded-comments,translation-ready,custom-backg
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Donate link: https://paypal.me/drkoder
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -33,6 +33,11 @@ Just click on Appearance -> Customize -> Widget
 
 = 1.0.0 =
 * Launched this version.
+
+= 1.0.1 =
+* Minor UI updates.
+* Security updates.
+* License updates.
 
 == Upgrade Notice ==
 
