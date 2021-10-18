@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: astromag Home
+ * Template Name: Astromag Home
  */
 
 get_header();
@@ -313,17 +313,18 @@ get_header();
 								endif; // custom pagination end ?>
 							</nav>
 						</div>
+
+						<?php
+						// check if infinite scroll enabled from theme option
+							if( get_theme_mod( 'section_three_enable_inf_scroll', 'enable' ) == 'enable' ): 
+						?>
 						
 						<?php if( get_theme_mod( 'section_three_scroll_behavior', 'scroll' ) == 'button' ): ?>
 							<div class="col-md-1-1 text-center">
 								<button id="infinite-load-btn"><?php echo esc_html( get_theme_mod( 'section_three_scroll_btn_text', 'Load more post' ) ); ?></button>
 							</div>
 						<?php endif; ?>
-
-						<?php
-						// check if infinite scroll enabled from theme option
-							if( get_theme_mod( 'section_three_enable_inf_scroll', 'enable' ) == 'enable' ): 
-						?>
+						
 						<div class="col-md-1-1">
 							<div class="page-load-status hide-nav text-center">
 								<p class="infinite-scroll-request"><?php echo esc_html( get_theme_mod( 'section_three_inf_scroll_loading_text', 'Loading...' ) ) ?></p>
