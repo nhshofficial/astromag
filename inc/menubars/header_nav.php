@@ -32,34 +32,9 @@
             </div> <!-- column -->
 
             <?php 
-                $astromag_social_handles_default = [
-                    [
-                        'header_icon_icons' => 'fa-brands fa-facebook-square',
-                        'header_icon_color' => '#065dbf',
-                        'header_icon_title'  => 'Facebook',
-                        'header_icon_link'  => esc_url_raw('https://facebook.com'),
-                    ],
-                    [
-                        'header_icon_icons' => 'fa-brands fa-instagram',
-                        'header_icon_color' => '#f242a5',
-                        'header_icon_title'  => 'Instagram',
-                        'header_icon_link'  => esc_url_raw('https://instagram.com'),
-                    ],
-                    [
-                        'header_icon_icons' => 'fa-brands fa-twitter-square',
-                        'header_icon_color' => '#08a4e5',
-                        'header_icon_title'  => 'Twitter',
-                        'header_icon_link'  => esc_url_raw('https://twitter.com'),
-                    ],
-                    [
-                        'header_icon_icons' => 'fa-brands fa-linkedin',
-                        'header_icon_color' => '#0b66c2',
-                        'header_icon_title'  => 'LinkedIn',
-                        'header_icon_link'  => esc_url_raw('https://linkedin.com'),
-                    ],
-                ];
-
-                $astromag_social_handles = get_theme_mod( 'header_social_handle', $astromag_social_handles_default );
+                if( get_theme_mod( 'enable_social_handle', false ) == true ): 
+                    
+                $astromag_social_handles = get_theme_mod( 'header_social_handle' );
             ?>
 
             <div class="col-md-1-1 py-15 border-bottom">
@@ -69,6 +44,7 @@
                     <?php endforeach; ?>
                 </ul>
             </div> <!-- column social -->
+            <?php endif; ?>
         </div> <!-- frow -->
     </header> <!-- header -->
 </div> <!-- column left ends -->

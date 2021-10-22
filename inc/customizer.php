@@ -71,8 +71,17 @@ Kirki::add_field( 'astromag_theme_config', [
 	'default'     => '<hr>',
 ] );
 
+// enable disable social handle
+Kirki::add_field( 'astromag_theme_config', [
+	'type'        => 'toggle',
+	'settings'    => 'enable_social_handle',
+	'label'       => esc_html__( 'Enable Social Handle?', 'astromag' ),
+	'section'     => 'astromag_header_setup',
+	'default'     => '0',
+] );
+
 // Social links repeater
-Kirki::add_field( 'theme_config_id', [
+Kirki::add_field( 'astromag_theme_config', [
 	'type'        => 'repeater',
 	'label'       => esc_html__( 'Social Links', 'astromag' ),
 	'section'     => 'astromag_header_setup',
@@ -82,32 +91,6 @@ Kirki::add_field( 'theme_config_id', [
 		'value' => esc_html__( 'Social Link', 'astromag' ),
 	],
 	'button_label' => esc_html__('Add new social handle', 'astromag' ),
-	'default'      => [
-		[
-			'header_icon_icons' => 'fa-brands fa-facebook-square',
-			'header_icons_color' => '#065dbf',
-			'header_icon_title'  => 'Facebook',
-			'header_icon_link'  => esc_url_raw('https://facebook.com'),
-		],
-		[
-			'header_icon_icons' => 'fa-brands fa-instagram',
-			'header_icons_color' => '#f242a5',
-			'header_icon_title'  => 'Instagram',
-			'header_icon_link'  => esc_url_raw('https://instagram.com'),
-		],
-		[
-			'header_icon_icons' => 'fa-brands fa-twitter-square',
-			'header_icons_color' => '#08a4e5',
-			'header_icon_title'  => 'Twitter',
-			'header_icon_link'  => esc_url_raw('https://twitter.com'),
-		],
-		[
-			'header_icon_icons' => 'fa-brands fa-linkedin',
-			'header_icons_color' => '#0b66c2',
-			'header_icon_title'  => 'LinkedIn',
-			'header_icon_link'  => esc_url_raw('https://linkedin.com'),
-		],
-	],
 	'fields' => [
 		'header_icon_icons' => [
 			'type'        => 'select',
@@ -170,7 +153,14 @@ Kirki::add_field( 'theme_config_id', [
 	],
     'choices'   => [
         'limit' => 4,
-    ]
+    ],
+    'active_callback'   =>  [
+        [
+            'setting'   =>  'enable_social_handle',
+            'operator'  =>  '===',
+            'value'     =>  true,
+        ],
+    ],
 ] );
 
 /*----------------------------
