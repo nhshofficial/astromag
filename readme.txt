@@ -4,7 +4,7 @@ Tags: custom-menu,theme-options,threaded-comments,translation-ready,custom-backg
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Donate link: https://paypal.me/drkoder
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -28,6 +28,9 @@ Just click on Appearance -> Customize -> Theme options -> Page Title Customizati
 = How to work on Footer Widgets ? =
 Just click on Appearance -> Customize -> Widget
 
+= Any documentation available for Astromag ? =
+Of course! Full documentation including demo available here at https://docs.devglitch.com/category/astromag/
+
 
 == Changelog ==
 
@@ -38,6 +41,9 @@ Just click on Appearance -> Customize -> Widget
 * Minor UI updates.
 * Security updates.
 * License updates.
+
+= 1.0.2 =
+* Minor UI updates.
 
 == Upgrade Notice ==
 
